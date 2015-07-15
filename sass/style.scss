@@ -1,0 +1,69 @@
+/*variables*/
+$font-stack: Helvetica, sans-serif;
+$primary-color: pink;
+$secondary-color: white;
+
+/*mixins*/
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+/*nesting*/
+nav{
+  ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li{
+    display: inline-block;
+    background-color: $primary-color;
+  }
+
+  a{
+    display: block;
+    color: $secondary-color;
+    text-decoration: none;
+  }
+}
+
+.box{
+  @include border-radius(10px);
+  background-color: $primary-color;
+  padding: .5em;
+  margin: 10px 0;
+  color: $secondary-color;
+}
+
+.border-box{
+  border: .5em solid #B20047;
+  padding: .5em;
+  margin: 10px 0;
+}
+.border-box-light{
+  @extend .border-box;
+  border-color: #F0CCDA;
+}
+
+.container{
+  width: 100%;
+}
+
+article{
+  float: left;
+  width: 600px / 960px * 100%;
+}
+
+aside{
+  float: right;
+  width: 300px / 960px * 100%;
+}
